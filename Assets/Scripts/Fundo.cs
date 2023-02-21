@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Piso : MonoBehaviour
+public class Fundo : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 10f;
+    private float speed = 2f;
 
     private Vector3 posicaoInicial;
     private float tamanhoDaImagem;
