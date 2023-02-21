@@ -6,6 +6,9 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D _rb;
 
+    [SerializeField]
+    private float force = 10f;
+
     private void Awake()
     {
         _rb = this.GetComponent<Rigidbody2D>();
@@ -15,7 +18,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            _rb.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+            _rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
         }
     }
 }
