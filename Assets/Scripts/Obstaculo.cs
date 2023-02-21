@@ -18,5 +18,10 @@ public class Obstaculo : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.left * Time.deltaTime * speed);
+
+        if(transform.position.x < -11)
+        {
+            Destroy(gameObject);
+        }
     }
 }
