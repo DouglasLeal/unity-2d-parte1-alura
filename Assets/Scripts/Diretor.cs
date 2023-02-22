@@ -8,10 +8,12 @@ public class Diretor : MonoBehaviour
     private GameObject imagemGameOver;
 
     private Player _aviao;
+    private Pontuacao _pontuacao;
 
     private void Start()
     {
         _aviao = FindObjectOfType<Player>();
+        _pontuacao = FindObjectOfType<Pontuacao>();
     }
 
     public void FinalizarJogo()
@@ -25,6 +27,7 @@ public class Diretor : MonoBehaviour
         Time.timeScale = 1;
         imagemGameOver.SetActive(false);
         _aviao.Reiniciar();
+        _pontuacao.Zerar();
 
         DestruirObstaculos();
     }

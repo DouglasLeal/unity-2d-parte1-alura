@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private Diretor _diretor;
+    private Pontuacao _pontuacao;
 
 
     [SerializeField]
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _diretor = FindObjectOfType<Diretor>();
+        _pontuacao = FindObjectOfType<Pontuacao>();
     }
 
     void Update()
@@ -43,5 +46,13 @@ public class Player : MonoBehaviour
     {
         _rb.simulated = true;
         transform.position = posInicial.transform.position;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Obstaculo"))
+        {
+            _pontuacao.Pontuar();
+        }
     }
 }
