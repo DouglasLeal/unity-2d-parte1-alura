@@ -7,12 +7,20 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rb;
     private Diretor _diretor;
 
+
     [SerializeField]
     private float force = 5f;
+    [SerializeField]
+    private GameObject posInicial;
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();        
+        transform.position = posInicial.transform.position;
+    }
+
+    private void Start()
+    {
         _diretor = FindObjectOfType<Diretor>();
     }
 
@@ -29,5 +37,11 @@ public class Player : MonoBehaviour
     {
         _rb.simulated = false;
         _diretor.FinalizarJogo();
+    }
+
+   public void Reiniciar()
+    {
+        _rb.simulated = true;
+        transform.position = posInicial.transform.position;
     }
 }

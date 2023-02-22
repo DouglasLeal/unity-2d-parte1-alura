@@ -21,7 +21,12 @@ public class Obstaculo : MonoBehaviour
 
         if(transform.position.x < -11)
         {
-            Destroy(gameObject);
+            Destruir();
         }
+    }
+
+    public void Destruir()
+    {
+        Destroy(gameObject);
     }
 }
